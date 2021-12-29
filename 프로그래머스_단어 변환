@@ -1,0 +1,48 @@
+import Foundation
+
+var count = 0
+
+func solution(_ begin:String, _ target:String, _ words:[String]) -> Int {
+    
+    return dfs(beforeWord: begin, target: target, word: words)
+}
+
+func dfs(beforeWord: String, target: String, word: [String]) -> Int {
+    var wordTemp = word
+    count += 1
+    
+    if isOneCharDiff(firstWord: beforeWord, SecondWord: target) {
+        if wordTemp.contains(target) {
+            return count
+        }
+    }
+    
+    for index in 0..<wordTemp.count {
+        if isOneCharDiff(firstWord: beforeWord, SecondWord: wordTemp[index]) {
+            if wordTemp[index] == target {
+                count += 1
+                return count
+            } else {
+                let nextWord = wordTemp.remove(at: index)
+                return dfs(beforeWord: nextWord, target: target, word: wordTemp)
+            }
+            
+        }
+    }
+    
+    return 0
+}
+
+func isOneCharDiff(firstWord: String, SecondWord: String) -> Bool {
+    var count = 0
+    let arrayA = Array(firstWord)
+    let arrayB = Array(SecondWord)
+    
+    for i in 0..<arrayA.count {
+        if arrayA[i] != arrayB[i] {
+            count += 1
+        }
+        if count > 1 { return false }
+    }
+    return true
+}
