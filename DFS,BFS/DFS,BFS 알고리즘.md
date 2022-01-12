@@ -79,7 +79,6 @@ print(visited) // [1, 2, 4, 8, 3, 5, 7, 9, 6]
   - 최단 경로를 알 수 있다
 3. 단점 
   - 큐에 노드에 저장해야하기 때문에 상황에 따라 저장공간이 많이 필요하다
-  - 
 
 ## DFS,BFS 그림
 ![DFS,BFS](https://user-images.githubusercontent.com/71269216/149136494-78b34a2d-dcf6-4765-8c1d-aaec44b83148.gif)
